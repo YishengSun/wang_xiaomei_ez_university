@@ -1,0 +1,6 @@
+select t.model, p.codename, "'"||t.app_label||'.'||p.codename||"'" as permission_required
+from auth_permission p
+JOIN django_content_type t
+on p.content_type_id = t.id
+where t.app_label = 'courseinfo'
+order by t.model, p.codename ;
